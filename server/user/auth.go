@@ -17,14 +17,14 @@ type MyClaims struct {
 const TokenExpireDuration = time.Hour * 2
 
 type UserInfo struct {
-	Username string
-	Password string
+	Username string `json:"username"`
+	Password string `json:"password"`
 }
 
 func LoginHandler(c *gin.Context) {
 	// 用户发送用户名和密码过来
 	var user UserInfo
-	err := c.ShouldBind(&user)
+	err := c.BindJSON(&user)
 	if err != nil {
 		c.JSON(http.StatusOK, gin.H{
 			"code": 2001,

@@ -13,7 +13,7 @@ func InitRouter() *gin.Engine {
 	apiRouterWithoutRecord := router.Group("/api/v1")
 	{
 		// 鉴权路由组
-		apiRouter.GET("login", user.LoginHandler)
+		apiRouter.POST("login", user.LoginHandler)
 	}
 	{
 		// 不鉴权路由组
