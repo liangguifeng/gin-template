@@ -1,7 +1,6 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
 	"github.com/liangguifeng/gin-template/setup"
 )
 
@@ -10,9 +9,8 @@ import (
 //go:generate go mod tidy
 //go:generate go mod download
 func main() {
-	router := gin.Default()
+	// 初始化路由
+	server := setup.InitRouter()
 
-	setup.InitRouter(router)
-
-	_ = router.Run()
+	_ = server.Run()
 }
