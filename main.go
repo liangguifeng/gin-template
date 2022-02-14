@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/liangguifeng/gin-template/routes"
+	"github.com/liangguifeng/gin-template/setup"
 )
 
 //go:generate go env -w GO111MODULE=on
@@ -12,7 +12,7 @@ import (
 func main() {
 	router := gin.Default()
 
-	routes.Api(router)
+	setup.InitRouter(router)
 
 	_ = router.Run()
 }
